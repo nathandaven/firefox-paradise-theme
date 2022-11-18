@@ -7,9 +7,10 @@ My custom Firefox userChrome profile, setup with right handed vertical tabs, com
 
 See [nathandaven/startpage](https://github.com/nathandaven/startpage) for my accompanying start page extension.
 
-This is designed custom fit for me, so don't expect much configurability. See [here](https://github.com/ranmaru22/firefox-vertical-tabs) for a more standard configurable theme.
+This is designed custom fit for me, so don't expect much configurability. See [here](https://github.com/ranmaru22/firefox-vertical-tabs) for the more standard theme this is based on.
 
 ## Installation
+0. go to about:config in your URL bar, search for toolkit.legacyUserProfileCustomizations.stylesheets and set it to true
 1. locate the firefox profile folder by going to the *hamburger menu* > *help* > *more torubleshooting information*
 2. click *show in finder* next to profile folder
 3. open the highlighted folder (should look something like "13s123f4.default-release"
