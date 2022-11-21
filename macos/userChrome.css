@@ -292,7 +292,8 @@
 [sidebarcommand*="tabcenter"] #sidebar,
 #sidebar-box[sidebarcommand*="tabcenter"]:hover {
   min-width: 10vw !important;
-  width: 20vw !important;
+  /* width: 20vw !important; */
+  width: 200px !important;
   max-width: 200px !important;
   z-index: 10 !important;
 }
