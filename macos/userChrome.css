@@ -142,12 +142,12 @@
 
   #nav-bar {
     /* enable if you want blur on light mode */
-    -moz-appearance: -moz-mac-vibrant-titlebar-light !important;
+    /* -moz-appearance: -moz-mac-source-list !important; */
   }
 
   @media (prefers-color-scheme: dark) {
     #nav-bar {
-      -moz-appearance: -moz-mac-vibrant-titlebar-dark !important;
+      -moz-appearance: -moz-mac-source-list !important;
     }
   }
 }
