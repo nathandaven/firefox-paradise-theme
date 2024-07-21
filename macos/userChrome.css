@@ -99,7 +99,6 @@ browser:not(#sidebar) {
 
   #urlbar-background {
     border-radius: 8px;
-    background-color: ;
   }
 
   #toolbar-menubar {
@@ -300,7 +299,7 @@ browser:not(#sidebar) {
   max-width: var(--sidebar-width); /*48*/
   overflow: hidden;
   transition: all 0.1s ease;
-  border-left: 1px solid var(--sidebar-border-color);
+  border-left: 0.01px solid var(--chrome-content-separator-color);
   z-index: 1;
   top: 0;
   bottom: 0;
