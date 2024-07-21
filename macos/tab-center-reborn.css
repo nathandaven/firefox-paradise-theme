@@ -10,6 +10,8 @@
   --tablist-separator: #cccccc;
   --input-text: rgb(76, 76, 76);
   --icons: rgb(76, 76, 76);
+  --toolbar-field-background-color: rgb(245, 245, 245);
+  --tab-active-background: rgb(240, 240, 240);
 }
 
 @media (prefers-color-scheme: dark) {
