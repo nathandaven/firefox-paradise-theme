@@ -1,27 +1,33 @@
+/* nathan */
 /* nathan’s custom firefox userChrome based on https://github.com/ranmaru22/firefox-vertical-tabs */
-/* updated for firefox 107 */
+/* updated for firefox 128 (WINDOWS UNTESTED RN) */
 
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Set theme version text in customization panel */
+
+#customization-footer::before {
+  content: "Paradise's Firefox Theme by Nathan Davenport (github.com/nathandaven/firefox-paradise-theme)";
+  padding: 9px;
+}
+/* rgb(240, 240, 240) */
 :root {
-  --lwt-accent-color: rgb(240, 240, 240) !important;
+  --lwt-accent-color: rgb(245, 245, 245) !important;
   --lwt-text-color: rgba(40, 40, 40) !important;
-  --arrowpanel-background: rgb(240, 240, 240) !important;
+  --arrowpanel-background: rgb(245, 245, 245) !important;
   --panel-disabled-color: rgba(76, 76, 76, 0.5) !important;
   --panel-description-color: rgba(76, 76, 76, 0.7) !important;
   --arrowpanel-color: rgba(76, 76, 76, 1) !important;
-
   --arrowpanel-border-color: rgb(210, 210, 210) !important;
-
-  --toolbar-field-background-color: rgb(240, 240, 240) !important;
+  --toolbar-field-background-color: rgb(245, 245, 245) !important;
   --toolbar-field-color: rgb(76, 76, 76) !important;
-  --toolbar-field-focus-background-color: rgba(240, 240, 240, 1) !important;
+  --toolbar-field-focus-background-color: rgba(245, 245, 245, 1) !important;
   --toolbar-field-focus-color: rgb(76, 76, 76) !important;
   --lwt-background-tab-separator-color: rgb(176, 176, 176) !important;
   --toolbar-bgcolor: rgb(255, 255, 255) !important;
   --toolbar-color: rgb(113, 113, 113) !important;
-  --tabpanel-background-color: rgb(240, 240, 240) !important;
-
+  --tabpanel-background-color: rgb(245, 245, 245) !important;
   --chrome-content-separator-color: #cccccc /* rgb(176, 176, 176) */ !important;
-  /*rgb(210, 210, 210)*/
 
   /* sidebar */
   --sidebar-border-color: rgb(176, 176, 176) !important;
@@ -62,6 +68,9 @@
     --newtab-background-color: rgb(40, 40, 40) !important;
     --newtab-background-color-secondary: rgb(30, 30, 30) !important;
     --newtab-text-primary-color: #ffffff;
+
+    box-shadow: #ffffff !important;
+    border-color: white !important;
   }
 
   @-moz-document url("about:newtab"), url("about:home") {
@@ -74,7 +83,13 @@
   appearance: unset !important;
 }
 
-/* Linux & macOS specific styles https://github.com/ranmaru22/firefox-vertical-tabs */
+#tabbrowser-tabpanels,
+#tabbrowser-tabpanels[pendingpaint],
+browser:not(#sidebar) {
+  background-color: var(--background) !important;
+}
+
+/* macOS specific styles https://github.com/ranmaru22/firefox-vertical-tabs */
 @media (-moz-gtk-csd-available),
   (-moz-mac-big-sur-theme: 0),
   (-moz-mac-big-sur-theme: 1) {
@@ -82,11 +97,16 @@
     visibility: collapse !important;
   }
 
+  #urlbar-background {
+    border-radius: 8px;
+    background-color: ;
+  }
+
   #toolbar-menubar {
     padding-top: 0px !important;
   }
 
-  #TabsToolbar:not([customizing="true"]) {
+  #TabsToolbar {
     visibility: collapse !important;
   }
 
@@ -95,13 +115,17 @@
   }
 
   #nav-bar {
-    padding-left: 80px;
+    padding: 0px 0px 0px 86px !important;
+  }
+
+  #nav-bar-customization-target {
+    padding-left: 10px;
   }
 
   #TabsToolbar .titlebar-buttonbox-container {
     visibility: visible !important;
     position: absolute;
-    top: 11px; /* 12px */
+    top: 12px; /* 12px */
     left: 0px;
   }
 
@@ -131,33 +155,27 @@
   }
 
   /* testing transparency */
-
-  #main-window {
-    background: transparent !important;
-  }
-
-  #navigator-toolbox {
-    background-color: transparent !important;
-  }
-
-  #nav-bar {
-    /* enable if you want blur on light mode */
-    /* -moz-appearance: -moz-mac-source-list !important; */
-  }
-
-  @media (prefers-color-scheme: dark) {
-    #nav-bar {
-      -moz-appearance: -moz-mac-source-list !important;
-    }
-  }
 }
 
-/* Windows specific styles */
+/* Windows specific styles (NEEDS WORK) */
 @media (-moz-platform: windows-win10) {
   /* Hide main tabs toolbar */
   :root[tabsintitlebar] {
     --uc-window-control-width: 70px; /* Space at the right of nav-bar for window controls */
     /* --uc-window-drag-space-width: 24px; */ /* To add extra window drag space in nav-bar */
+  }
+
+  #nav-bar-customization-target {
+    border-inline: var(--uc-window-drag-space-width, 0px) solid
+      var(--toolbar-bgcolor);
+    border-inline-style: solid !important;
+    border-right-width: calc(
+      var(--uc-window-control-width, 0px) +
+        var(--uc-window-drag-space-width, 0px)
+    );
+
+    padding-top: 0px !important;
+    margin-left: -80px; /* Removes the space left when hiding .titlebar-buttonbox-container */
   }
 
   #nav-bar {
@@ -202,7 +220,7 @@
     /*padding-right: 10px;*/
   }
 
-  :root:not([inFullscreen]) #nav-bar {
+  :root:not([inFullscreen]) #nav-bar-customization-target {
     margin-top: calc(0px - var(--uc-toolbar-height));
     padding-right: 40px;
   }
@@ -236,7 +254,7 @@
     margin-left: var(--uc-window-drag-space-width, 0px);
   }
 
-  :root[inFullscreen] #nav-bar {
+  :root[inFullscreen] #nav-bar-customization-target {
     border-inline: none !important;
   }
   :root:not([inFullscreen]) #nav-bar {
