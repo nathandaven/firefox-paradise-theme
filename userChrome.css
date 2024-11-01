@@ -273,6 +273,8 @@ browser:not(#sidebar) {
 /* General styles */
 #browser {
   position: relative;
+}
+#browser:has(#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden])) {
   padding-right: 40px;
 }
 
@@ -332,11 +334,11 @@ browser:not(#sidebar) {
   height: 100%;
 }
 
-#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
+#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #tabbrowser-tabbox {
   margin-right: var(--sidebar-width); /*48*/
 }
 
-#main-window[inFullscreen][inDOMFullscreen] #appcontent {
+#main-window[inFullscreen][inDOMFullscreen] #tabbrowser-tabbox {
   margin-right: 0;
 }
 
