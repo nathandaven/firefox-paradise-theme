@@ -4,11 +4,11 @@
     background-color: transparent;
   }
 }
-@ -moz-document url("about:newtab") {
-    body {
+@-moz-document url("about:newtab") {
+  body {
     background-color: #00000000 !important;
-    }
-    }
+  }
+}
 /* Removes the white loading page */
 /* url(about:newtab), url(about:home) */
 @-moz-document url(about:blank) {
