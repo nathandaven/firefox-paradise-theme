@@ -1,6 +1,5 @@
-/* nathan */
-/* nathan’s custom firefox userChrome based on https://github.com/ranmaru22/firefox-vertical-tabs */
-/* updated for firefox 128 (WINDOWS UNTESTED RN) */
+/* Nathan’s custom firefox userChrome based on https://github.com/ranmaru22/firefox-vertical-tabs */
+/* Latest update: Firefox 132.0 */
 
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
@@ -274,8 +273,10 @@ browser:not(#sidebar) {
 #browser {
   position: relative;
 }
+
+/* Firefox 132.0 bugfix */
 #browser:has(#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden])) {
-  padding-right: 40px;
+  padding-right: var(--sidebar-width);
 }
 
 #nav-bar {
