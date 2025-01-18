@@ -127,7 +127,7 @@ browser:not(#sidebar) {
   }
 
   #nav-bar-customization-target {
-    padding-left: 10px;
+    padding-left: 80px;
   }
 
   .titlebar-buttonbox-container {
@@ -213,6 +213,10 @@ browser:not(#sidebar) {
   /* Firefox 134.0.1 bugfix */
   z-index: 99 !important;
 }
+#main-window[inFullscreen][inDOMFullscreen]
+  #browser:has(#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden])) {
+  padding-right: 0;
+}
 
 #nav-bar {
   z-index: 100;
@@ -275,7 +279,7 @@ browser:not(#sidebar) {
 }
 
 #main-window[inFullscreen][inDOMFullscreen] #tabbrowser-tabbox {
-  margin-right: 0;
+  margin-right: 0 !important;
 }
 
 #main-window[inFullscreen] #sidebar {
