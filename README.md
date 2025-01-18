@@ -1,6 +1,6 @@
 # Firefox Paradise Theme
 
-_Last updated November 2024 - Supports Firefox 132+_
+_Last updated January 2025 - Supports Firefox 134.0.1+_
 
 ![startpage](https://github.com/nathandaven/startpage/blob/master/preview.gif?raw=true)
 
